@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #343a40; 
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-center {
+    justify-content: center;
+}
+
+.navbar-right {
+    justify-content: flex-end;
+    margin-right: 5.5rem; 
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.welcome-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.logout-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-color: white;
+    color: white;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.dashboard-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    margin-top: 80px; 
+    text-align: left;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+.form-container {
+    text-align: left;
+}
+
+.enrollment-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.enrollment-form .form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.enrollment-form label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 1rem;
+    color: #555;
+}
+
+.courses-list {
+    background-color: #e9ecef;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.course-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.course-item .form-check-input {
+    margin-right: 0.5rem;
+    margin-top: 4px;
+}
+
+.course-item .form-check-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.course-description {
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.btn-block {
+    background: #007bff;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-block:hover {
+    background: #0056b3;
+}

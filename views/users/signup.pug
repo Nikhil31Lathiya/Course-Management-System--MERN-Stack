@@ -1,0 +1,35 @@
+//- views/users/signup.pug
+extends ../layout
+
+block head
+    link(rel="stylesheet", href="/css/signup.css")
+
+block content
+    .container
+        .signup-wrapper
+            h2 Sign Up
+
+            if success
+                script.
+                    alert("#{success}");
+                    window.location.href = "/";
+
+            form(action="/signup", method="POST", class="signup-form")
+                .mb-3
+                    label(for="firstName") First Name:
+                    input#firstName.form-control(type="text", name="firstName", placeholder="Enter your first name", required)
+                .mb-3
+                    label(for="lastName") Last Name:
+                    input#lastName.form-control(type="text", name="lastName", placeholder="Enter your last name", required)
+                .mb-3
+                    label(for="email") Email:
+                    input#email.form-control(type="email", name="email", placeholder="Enter your email", required)
+                .mb-3
+                    label(for="password") Password:
+                    input#password.form-control(type="password", name="password", placeholder="Enter your password", required)
+                button.btn.btn-primary.btn-block(type="submit") Register
+
+            .additional-links.mt-3
+                p
+                    | Already have an account? 
+                    a(href="/") Login

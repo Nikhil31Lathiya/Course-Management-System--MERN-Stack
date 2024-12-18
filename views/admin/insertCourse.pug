@@ -1,0 +1,23 @@
+//- views/admin/insertCourse.pug
+extends ../layout
+
+block head
+    link(rel="stylesheet", href="/css/insertCourse.css")
+
+block content
+    .container
+        .form-wrapper
+            img.logo(src="/images/1.webp", alt="Logo") 
+
+            h2 Insert Course
+            form(action="/admin/insertCourse", method="POST", class="course-form")
+                .form-group.mb-3
+                    label(for="name") Course Name:
+                    input#name.form-control(type="text", name="name", placeholder="Enter course name" required)
+                .form-group.mb-3
+                    label(for="duration") Course Duration:
+                    input#duration.form-control(type="text", name="duration", placeholder="Enter course duration" required)
+                .form-group.mb-3
+                    label(for="details") Course Details:
+                    textarea#details.form-control(name="details" placeholder="Enter course details" rows="5" required)
+                button.btn.btn-primary.btn-block(type="submit") Insert Course

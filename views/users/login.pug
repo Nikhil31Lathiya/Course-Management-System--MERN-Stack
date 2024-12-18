@@ -1,0 +1,30 @@
+//- views/users/login.pug
+extends ../layout
+
+block head
+    link(rel="stylesheet", href="/css/login.css")
+
+block content
+    .container
+        .login-wrapper
+            img.logo(src="/images/1.webp", alt="Course Registration System Logo")
+
+            h2 Course Registration System
+
+            form(action="/login", method="POST", class="login-form")
+                if error
+                    .alert.alert-danger #{error}
+                .mb-3
+                    label(for="email") Email:
+                    input#email.form-control(type="email", name="email", placeholder="Enter your email", required)
+                .mb-3
+                    label(for="password") Password:
+                    input#password.form-control(type="password", name="password", placeholder="Enter your password", required)
+                button.btn.btn-primary.btn-block(type="submit") Login
+
+            .additional-links
+                p
+                    | Don't have an account? 
+                    a(href="/signup") Sign up
+                p
+                    a(href="/admin/login") Login as Admin

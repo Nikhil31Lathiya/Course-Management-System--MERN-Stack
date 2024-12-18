@@ -1,0 +1,50 @@
+//- views/admin/adminDashboard.pug
+extends ../layout
+
+block head
+    link(rel="stylesheet", href="/css/adminDashboard.css")
+
+block content
+   
+    nav.navbar
+        .navbar-left
+            img.logo(src="/images/1.webp", alt="Logo") 
+        .navbar-center
+            h2 Welcome, Admin!
+        .navbar-right
+            a.btn.btn-primary.mr-2(href="/admin/insertCourse") Insert Course
+            a.btn.btn-danger(href="/") Logout
+
+    .container
+        .search-section
+            form(action="/admin/dashboard", method="GET", class="mb-3 search-form")
+                .input-group
+                    input.form-control(type="text", name="search", placeholder="Search by Course Name", value=`${search || ''}`)
+                    button.btn.btn-primary(type="submit") Search
+            if search
+                a.btn.btn-secondary.remove-filter(href="/admin/dashboard") Remove Filter
+
+        .table-responsive
+            table.table.table-bordered.table-striped
+                thead
+                    tr
+                        th Name
+                        th Duration
+                        th Details
+                        th Actions
+                tbody
+                    if courses.length > 0
+                        each course in courses
+                            tr
+                                td #{course.name}
+                                td #{course.duration}
+                                td #{course.details}
+                                td
+                                    .button-group
+                                        a.btn.btn-warning.btn-sm.mr-2(href=`/admin/editCourse/${course._id}`) Edit
+                                        a.btn.btn-danger.btn-sm(href=`/admin/deleteCourse/${course._id}`) Delete
+                    else
+                        tr
+                            td(colspan="4") No courses found.
+
+

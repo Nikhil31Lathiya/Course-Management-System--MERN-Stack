@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title Enrollment Form
+    link(rel='stylesheet', href='/css/userDashboard.css') 
+  body
+    .container
+      .navbar
+        .navbar-left
+          img.logo(src='/images/1.webp', alt='Logo') 
+        .navbar-center
+          h1.welcome-message Welcome to the Course Registration Page
+        .navbar-right
+          a.logout-btn(href='/logout') Logout
+
+      .dashboard-content
+        h3 Enrollment Form
+        form.enrollment-form(action='/enroll', method='POST')
+          .form-container
+            .form-group
+              label(for='firstname') First Name:
+              input.form-control(type='text', name='firstname', required=true)
+            .form-group
+              label(for='lastname') Last Name:
+              input.form-control(type='text', name='lastname', required=true)
+            .form-group
+              label(for='birthdate') Birth Date:
+              input.form-control(type='date', name='birthdate', required=true)
+            .form-group
+              label(for='gender') Gender:
+              select.form-control(name='gender', required=true)
+                option(value='') Select Gender
+                option(value='Male') Male
+                option(value='Female') Female
+                option(value='Other') Other
+            .form-group
+              label(for='address') Address:
+              input.form-control(type='text', name='address', required=true)
+            .form-group
+              label(for='email') Email:
+              input.form-control(type='email', name='email', required=true)
+            .form-group
+              label(for='mobileno') Mobile No:
+              input.form-control(type='tel', name='mobileno', required=true) 
+            .form-group
+              label(for='courses') Courses:
+              select.form-control(name='courses', multiple=true, required=true)
+                each course in courses
+                  option(value=course._id) #{course.name} 
+
+            .form-group
+              button.btn-block(type='submit') Submit
+
+        if error
+          p.error= error 

@@ -1,0 +1,39 @@
+//- views/users/enrollmentConfirmation.pug
+extends ../layout
+
+block head
+    link(rel="stylesheet", href="/css/enrollmentConfirmation.css")
+
+block content
+    .container
+        .confirmation-wrapper
+            h2 Enrollment Confirmation
+            p.thank-you-message Thank you, #{name}, for enrolling in the courses! Here are your enrollment details:
+
+            .user-info
+                h3 User Information
+                ul
+                    li
+                        strong Name: 
+                        |  #{name}
+                    li
+                        strong Email: 
+                        |  #{email}
+                    li
+                        strong Phone: 
+                        |  #{mobileno}
+
+            .course-info
+                h3 Enrolled Courses
+                table.table.table-bordered.table-striped
+                    thead
+                        tr
+                            th Course Name
+                            th Description
+                    tbody
+                        each course in courses
+                            tr
+                                td #{course.name}
+                                td #{course.details}
+
+            a.btn.btn-primary.mt-3(href="/userDashboard") Back to Dashboard
